@@ -1,19 +1,10 @@
-function Timer() {
-  this.s1 = 0;
-  this.s2 = 0;
-  // 箭头函数
-  setInterval(() => {
-    console.log("====>", this);
-    this.s1++;
-  }, 1000);
-  // 普通函数
-  setInterval(function() {
-    console.log("function", this);
-    this.s2++;
-  }, 1000);
-}
-
-var timer = new Timer();
-
-//setTimeout(() => console.log("s1: ", timer.s1), 3100);
-//setTimeout(() => console.log("s2: ", timer.s2), 3100);
+let insert = value => ({
+  into: array => ({
+    after: afterValue => {
+      array.splice(array.indexOf(afterValue) + 1, 0, value);
+      return array;
+    }
+  })
+});
+//insert(2).into([1, 3]).after(1);
+// insert(2).info([1, 3]).after(0);
